@@ -14,10 +14,16 @@ let sunsetHTML = document.getElementById("sunset");
 let weatherImage = document.getElementById("weather-image");
 
 
-const weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=54.072&longitude=-2.2885&current=temperature_2m,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=GMT&forecast_days=1"
-
-async function fetchWeather() {
-    const response = await fetch (weatherUrl)
+const giggleswickUrl = "https://api.open-meteo.com/v1/forecast?latitude=54.072&longitude=-2.2885&current=temperature_2m,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=GMT&forecast_days=1"
+const godmanchesterUrl = "https://api.open-meteo.com/v1/forecast?latitude=52.3194&longitude=-0.1751&current=temperature_2m,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=GMT&forecast_days=1"
+const wetwangUrl = "https://api.open-meteo.com/v1/forecast?latitude=54.0175&longitude=-0.5774&current=temperature_2m,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=GMT&forecast_days=1"
+const hellUrl="https://api.open-meteo.com/v1/forecast?latitude=42.4348&longitude=-83.9849&current=temperature_2m,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=GMT&forecast_days=1"
+const gigglesButton = document.getElementById("gigglesbutton");
+const godButton = document.getElementById("godbutton");
+const wetButton = document.getElementById("wetbutton");
+const hellButton = document.getElementById("hellbutton");
+async function fetchWeather(url) {
+    const response = await fetch (url)
         if (!response.ok) {
             console.error(response.status);
             console.error(await response.text());
@@ -79,7 +85,35 @@ windSpeedHTML.textContent = "Wind speed: " + windSpeedJava + "km/h";
 sunriseHTML.textContent = "Sunrise: " + sunriseTime + "am"; 
 sunsetHTML.textContent = "Sunset: " + sunsetTime +  "pm";
 
-}  
+} 
 
-    fetchWeather(); 
+function fetchWeatherGiggleswick () {
+    fetchWeather(giggleswickUrl)
+    document.getElementById("location").textContent = "Giggleswick"
+}
+
+function fetchWeatherGodmanchester () {
+    fetchWeather(godmanchesterUrl)
+    document.getElementById("location").textContent = "Godmanchester"
+}
+
+function fetchWeatherWetwang () {
+    fetchWeather(wetwangUrl)
+    document.getElementById("location").textContent = "Wetwang"
+}
+
+function fetchWeatherHell () {
+    fetchWeather(hellUrl)
+    document.getElementById("location").textContent = "Hell"
+}
+
+document.addEventListener("DOMContentLoaded", fetchWeatherGiggleswick);
+
+gigglesButton.addEventListener("click", fetchWeatherGiggleswick);
+
+godButton.addEventListener("click", fetchWeatherGodmanchester);
+
+wetButton.addEventListener("click", fetchWeatherWetwang);
+
+hellButton.addEventListener("click", fetchWeatherHell);
 
