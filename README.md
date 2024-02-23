@@ -20,6 +20,10 @@ Ticket 3a
 
 Ticket 3b
     Replace text.content with matching data from AP
+
+Ticket 3c
+    Write if statement that returns phrases based on weather code
+    Convert sunrise/sunset strings into only the time
     
 
 Ticket 4

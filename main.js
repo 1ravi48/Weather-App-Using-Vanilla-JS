@@ -37,18 +37,38 @@ console.log(windSpeedJava);
 
 let sunriseJava = weatherObject.daily.sunrise[0];
 console.log(sunriseJava);
+let sunriseTime = sunriseJava.slice(12, 17)
 
 let sunsetJava = weatherObject.daily.sunset[0];
 console.log(sunsetJava);
+let sunsetTime = sunsetJava.slice(12, 17)
 
+let weatherTypeString = ""
 
-
+if (weatherTypeJava === 0) {
+    weatherTypeString="Clear sky"
+}
+else if (0<weatherTypeJava<4){
+    weatherTypeString="Overcast"
+}
+else if (weatherTypeJava===45 || weatherTypeJava===48){
+    weatherTypeString="Fog"
+}
+else if (50<weatherTypeJava<58 || 79<weatherTypeJava<83){
+    weatherTypeString="Rain"
+}
+else if (70<weatherTypeJava<78 || 84<weatherTypeJava<87){
+    weatherTypeString="Snow"
+}
+else if (94<weatherTypeJava<100){
+    weatherTypeString="Thunderstorms"
+}
 
 temperatureHTML.textContent = "Temperature: " + temperatureJava + "°C";
-weatherTypeHTML.textContent = weatherTypeJava; 
+weatherTypeHTML.textContent = weatherTypeString; 
 windSpeedHTML.textContent = "Wind speed: " + windSpeedJava + "km/h"; 
-sunriseHTML.textContent = "Sunrise: " + sunriseJava + "am"; 
-sunsetHTML.textContent = "Sunset: " + sunriseJava +  "pm"; 
+sunriseHTML.textContent = "Sunrise: " + sunriseTime + "am"; 
+sunsetHTML.textContent = "Sunset: " + sunsetTime +  "pm";
 
 }  
 
