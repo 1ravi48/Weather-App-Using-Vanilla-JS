@@ -17,6 +17,7 @@ Ticket 3
         Weather Type
         Wind Speed
         Sunrise/Sunset
+        Add Date
 
 Ticket 4
     Style the elements on the page
