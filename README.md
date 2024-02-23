@@ -8,16 +8,19 @@ Ticket 2
         Assign url to variable
         Write async/await fetch function
 
-Ticket 3
+Ticket 3a
     Create functions to locate the relevant data and display in the DOM
         Locate element on the DOM
-        Replace text.content with matching data from API
         Repeat for:
         Temperature
         Weather Type
         Wind Speed
         Sunrise/Sunset
         Add Date
+
+Ticket 3b
+    Replace text.content with matching data from AP
+    
 
 Ticket 4
     Style the elements on the page

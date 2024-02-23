@@ -1,14 +1,15 @@
 const currentDate = new Date().toDateString();
 console.log(currentDate);
 
-let dateHTML = document.getElementsByClassName("currentDate");
+let dateHTML = document.getElementById("currentDate");
+dateHTML.textContent = currentDate;
 
 
-let temperatureHTML = document.getElementsByClassName("current-temperature");
-let weatherTypeHTML = document.getElementsByClassName("weather-type"); 
-let windSpeedHTML = document.getElementsByClassName("wind-speed"); 
-let sunriseHTML = document.getElementsByClassName("sunrise");
-let sunsetHTML = document.getElementsByClassName("sunset"); 
+let temperatureHTML = document.getElementById("current-temperature");
+let weatherTypeHTML = document.getElementById("weather-type"); 
+let windSpeedHTML = document.getElementById("wind-speed"); 
+let sunriseHTML = document.getElementById("sunrise");
+let sunsetHTML = document.getElementById("sunset"); 
 
 
 const weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=54.072&longitude=-2.2885&current=temperature_2m,weather_code,wind_speed_10m&daily=sunrise,sunset&timezone=GMT&forecast_days=1"
@@ -42,12 +43,14 @@ console.log(sunsetJava);
 
 
 
+
+temperatureHTML.textContent = "Temperature: " + temperatureJava + "°C";
+weatherTypeHTML.textContent = weatherTypeJava; 
+windSpeedHTML.textContent = "Wind speed: " + windSpeedJava + "km/h"; 
+sunriseHTML.textContent = "Sunrise: " + sunriseJava + "am"; 
+sunsetHTML.textContent = "Sunset: " + sunriseJava +  "pm"; 
+
 }  
 
     fetchWeather(); 
 
-let temperatureHTML = document.getElementsByClassName("current-temperature");
-let weatherTypeHTML = document.getElementsByClassName("weather-type"); 
-let windSpeedHTML = document.getElementsByClassName("wind-speed"); 
-let sunriseHTML = document.getElementsByClassName("sunrise");
-let sunsetHTML = document.getElementsByClassName("sunset"); 
